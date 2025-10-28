@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #e5e5e5;
+    line-height: 1.6;
+}
+
+.menu a .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 260px;
+    background: #000000;
+    border-right: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.logo {
+    padding: 24px 20px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.logo a:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.playlist {
+    padding: 20px;
+    flex: 1;
+}
+
+.playlist h2 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #737373;
+    margin-bottom: 16px;
+    padding: 0 12px;
+}
+
+.playlist-creator {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.playlist-creator a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.playlist-creator a:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 260px;
+    right: 0;
+    height: 60px;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 32px;
+    z-index: 50;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-actions span {
+    font-size: 14px;
+    color: #a3a3a3;
+    font-weight: 500;
+}
+
+.user-actions a {
+    padding: 8px 16px;
+    background: #1a1a1a;
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid #262626;
+    transition: all 0.2s ease;
+}
+
+.user-actions a:hover {
+    background: #262626;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+.user-actions a:last-child {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.user-actions a:last-child:hover {
+    background: #e5e5e5;
+    border-color: #e5e5e5;
+}
+
+.main-content {
+    margin-left: 260px;
+    margin-top: 60px;
+    padding: 32px;
+    min-height: calc(100vh - 60px);
+}
+
+
+/* Styles pour le contenu principal */
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.main-content h1 {
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.main-content h2 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.main-content form {
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 500px;
+    margin-top: 24px;
+}
+
+.main-content input,
+.main-content textarea,
+.main-content select {
+    width: 100%;
+    padding: 10px 14px;
+    background: #000000;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    color: #e5e5e5;
+    font-size: 14px;
+    font-family: inherit;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+}
+
+.main-content input:focus,
+.main-content textarea:focus,
+.main-content select:focus {
+    outline: none;
+    border-color: #404040;
+    background: #0a0a0a;
+}
+
+.main-content button,
+.main-content input[type="submit"] {
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.main-content button:hover,
+.main-content input[type="submit"]:hover {
+    background: #e5e5e5;
+}
+
+.main-content ul {
+    list-style: none;
+    margin-top: 24px;
+}
+
+.main-content li {
+    padding: 16px;
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.main-content li:hover {
+    background: #141414;
+    border-color: #262626;
+}
+
+.main-content a:not(.user-actions a):not(.logo a):not(.playlist-creator a) {
+    color: #a3a3a3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.main-content a:not(.user-actions a):not(.logo a):not(.playlist-creator a):hover {
+    color: #ffffff;
+}
