@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 use iutnc\deefy\dispatch\Dispatcher;
-use iutnc\deefy\auth\AuthnProvider;
+use iutnc\deefy\repository\DeefyRepository;
 
 
 require_once 'vendor/autoload.php';
 
-session_start(); 
+session_start();
 
-iutnc\deefy\repository\DeefyRepository::setConfig( 'db.config.ini' );
+DeefyRepository::setConfig( '/users/home/e32623u/config/db.config.ini' );
 
 $action = $_GET['action'] ?? 'default';
 
