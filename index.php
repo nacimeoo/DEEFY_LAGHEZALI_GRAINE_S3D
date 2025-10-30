@@ -8,7 +8,7 @@ require_once 'vendor/autoload.php';
 
 session_start();
 
-DeefyRepository::setConfig( '/users/home/e32623u/config/db.config.ini' );
+DeefyRepository::setConfig( 'C:/xampp/config/db.config.ini' );
 
 $action = $_GET['action'] ?? 'default';
 
