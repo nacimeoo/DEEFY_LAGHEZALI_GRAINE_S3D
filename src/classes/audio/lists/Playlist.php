@@ -27,23 +27,6 @@ class Playlist extends AudioList {
         }
     }
 
-    public function ajouterPistes(array $pistes): void {
-        $merged = array_merge($this->pistes, $pistes);
-
-        $unique = [];
-        $seen = [];
-        foreach ($merged as $piste) {
-            $key = $piste->titre . '|' . $piste->chemin;
-            if (!isset($seen[$key])) {
-                $unique[] = $piste;
-                $seen[$key] = true;
-            }
-        }
-
-        $this->pistes = $unique;
-        $this->nombrePistes = count($this->pistes);
-        $this->dureeTotale = $this->calculerDureeTotale();
-    }
 
     private function calculerDureeTotale(): int {
         $total = 0;

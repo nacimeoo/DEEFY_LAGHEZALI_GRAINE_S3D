@@ -17,7 +17,7 @@ class SigninAction extends Action{
                 <form method="post" action="?action=signin">
                     <input type="email" name="email" required placeholder="Email">
                     <input type="password" name="mdp" required placeholder="Mot de passe">
-                    <button type="submit">S'inscrire</button>
+                    <button type="submit">se connecter</button>
                 </form>
             </div>
         fin;

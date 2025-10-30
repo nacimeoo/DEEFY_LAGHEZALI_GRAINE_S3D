@@ -48,15 +48,15 @@ class DeefyRepository{
 
     }
 
-    public function getUserByEmail(string $email): array {
-        $stmt = $this->pdo->prepare('SELECT * FROM user WHERE email = :email');
+    public function getUserByEmail(string $email): array|false {
+        $stmt = $this->pdo->prepare('SELECT * FROM User WHERE email = :email');
         $stmt->execute(['email' => $email]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function insertUser(string $email, string $hashedPassword, int $role = 1): void {
         $stmt = $this->pdo->prepare(
-            "INSERT INTO user (email, passwd, role) VALUES (:email, :passwd, :role)"
+            "INSERT INTO User (email, passwd, role) VALUES (:email, :passwd, :role)"
         );
         $stmt->execute(['email' => $email, 'passwd' => $hashedPassword, 'role' => $role]);
     }

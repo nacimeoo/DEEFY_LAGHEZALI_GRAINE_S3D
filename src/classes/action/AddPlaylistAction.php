@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace iutnc\deefy\action;
 
-use iutnc\deefy\audio\lists\PlayList;
+use iutnc\deefy\audio\lists\Playlist;
 use iutnc\deefy\render\AudioListRenderer;
 use iutnc\deefy\render\Renderer;
 use iutnc\deefy\repository\DeefyRepository;
