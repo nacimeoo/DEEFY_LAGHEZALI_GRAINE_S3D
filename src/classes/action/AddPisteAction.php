@@ -39,10 +39,10 @@ class AddPisteAction extends Action{
             </div>
             fin;
         } else {
-            $titre  = filter_var($_POST['titre'], FILTER_SANITIZE_SPECIAL_CHARS);
+            $titre = filter_var($_POST['titre'], FILTER_SANITIZE_SPECIAL_CHARS);
             $auteur = filter_var($_POST['auteur'], FILTER_SANITIZE_SPECIAL_CHARS);
             $genre = filter_var($_POST['genre'], FILTER_SANITIZE_SPECIAL_CHARS);
-            $duree  = intval($_POST['duree']);
+            $duree = intval($_POST['duree']);
             $chemin = filter_var($_POST['chemin'], FILTER_SANITIZE_SPECIAL_CHARS);
 
             $repo = DeefyRepository::getInstance();

@@ -31,12 +31,10 @@ class SetPlaylistAction extends Action {
         }
 
 
-
         $p = new Playlist($playlist['nom'], $pistes);
         $p->setID((string)$playlist['id']);
 
         $_SESSION['playlist'] = ['id' => $playlist['id'], 'nom' => $playlist['nom']];
-        $_SESSION['current_playlist'] = $id_playlist;
 
         $renderer = new AudioListRenderer($p);
         $html = $renderer->render(Renderer::LONG);
