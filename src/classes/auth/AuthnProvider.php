@@ -34,7 +34,6 @@ class AuthnProvider{
         }
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-
         $repo->insertUser($email, $hashedPassword, 1);
 
     }
