@@ -28,8 +28,8 @@ class AuthnProvider{
             throw new AuthnException("Le mot de passe doit contenir au moins 10 caractères.");
         }
 
-        $existing = $repo->getUserByEmail($email);
-        if ($existing) {
+        $existe = $repo->getUserByEmail($email);
+        if ($existe) {
             throw new AuthnException("Un compte existe déjà avec cet email.");
         }
 
