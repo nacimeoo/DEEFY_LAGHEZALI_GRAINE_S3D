@@ -27,7 +27,7 @@ class addUserAction extends Action {
                 AuthnProvider::register($email, $mdp);
                 return "<p>Inscription réussie ! Vous pouvez maintenant vous connecter.</p>";
             } catch (AuthnException $e) {
-                return "<p>Erreur : " . htmlspecialchars($e->getMessage()) . "</p>";
+                return "<p>Erreur : " . $e->getMessage() . "</p>";
             }
         }
      }

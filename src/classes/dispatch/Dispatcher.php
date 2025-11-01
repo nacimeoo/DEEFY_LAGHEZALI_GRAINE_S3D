@@ -50,7 +50,7 @@ class Dispatcher {
     public function renderPage(string $html):void{
 
         if (isset($_SESSION['user'])) {
-            $email = htmlspecialchars($_SESSION['user']['email']);
+            $email = filter_var($_SESSION['user']['email'], FILTER_SANITIZE_EMAIL);
             $userContent = "<span>Connecté : $email</span> <a href='?action=deco'>Déconnexion</a>";
         } else {
             $userContent = "<a href='?action=signin'>Se connecter</a> <a href='?action=addUser'>S'inscrire</a>";

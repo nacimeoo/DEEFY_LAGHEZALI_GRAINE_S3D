@@ -11,8 +11,8 @@ class DisplayCurrentPlaylistAction extends Action{
 
         $pl = $_SESSION['playlist'];
 
-        $nom = htmlspecialchars($pl['nom']);
-        $id_pl = htmlspecialchars((string)$pl['id']);
+        $nom = filter_var($pl['nom'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $id_pl = filter_var((string)$pl['id'], FILTER_SANITIZE_SPECIAL_CHARS);
         return <<<fin
             <div class="playlist-container">
                 <h2 class="playlist-title">Playliste courante</h2>

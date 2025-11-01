@@ -12,7 +12,7 @@ class AddPisteAction extends Action{
                     <a href='?action=displayPlaylist'>Voir mes playlists</a>";
         }
 
-        $playlistName = htmlspecialchars($_SESSION['playlist']['nom']);
+        $playlistName = filter_var($_SESSION['playlist']['nom'], FILTER_SANITIZE_SPECIAL_CHARS);
 
         if ($this->http_method === 'GET') {
             return <<<fin
@@ -37,6 +37,8 @@ class AddPisteAction extends Action{
                     <button type="submit">Ajouter la piste</button>
                 </form>
             </div>
+
+
             fin;
         } else {
             $titre = filter_var($_POST['titre'], FILTER_SANITIZE_SPECIAL_CHARS);

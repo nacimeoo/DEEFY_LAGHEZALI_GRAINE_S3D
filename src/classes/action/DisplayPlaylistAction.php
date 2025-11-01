@@ -27,8 +27,8 @@ class DisplayPlaylistAction extends Action{
             fin;
 
         foreach ($playlists as $pl) {
-            $nom = htmlspecialchars($pl['nom']);
-            $id_pl = htmlspecialchars((string)$pl['id']);
+            $nom = filter_var($pl['nom'], FILTER_SANITIZE_SPECIAL_CHARS);
+            $id_pl = filter_var((string)$pl['id'], FILTER_SANITIZE_SPECIAL_CHARS);
 
             $html .= <<<fin
                 <div class="playlist-card">

@@ -30,10 +30,10 @@ class SigninAction extends Action{
                 $user = AuthnProvider::signin($email, $mdp);
                 $_SESSION['user'] = $user;
 
-                return "<p>Authentification réussie ! Bienvenue " . htmlspecialchars($user['email']) . ".</p>";
+                return "<p>Authentification réussie ! Bienvenue " . filter_var($user['email'], FILTER_SANITIZE_EMAIL) . ".</p>";
 
             }catch(AuthnException $e){
-                return "<p>Erreur : " . htmlspecialchars($e->getMessage()) . "</p>";
+                return "<p>Erreur : " . $e->getMessage() . "</p>";
             }
             
         }
