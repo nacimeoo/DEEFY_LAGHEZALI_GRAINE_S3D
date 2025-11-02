@@ -39,7 +39,6 @@ class DeefyRepository{
     }
 
 
-    // Ajoute et return une nouvelle playlist
     public function addPlaylist(Playlist $pl): Playlist {
         $query = "INSERT INTO playlist (nom) VALUES (:nom)";
         $stmt = $this->pdo->prepare($query);
@@ -49,14 +48,12 @@ class DeefyRepository{
 
     }
 
-    // return un user en fonction de son email
     public function getUserByEmail(string $email): array|false {
         $stmt = $this->pdo->prepare('SELECT * FROM User WHERE email = :email');
         $stmt->execute(['email' => $email]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    // ajoute un user avec un mot de passe haché et un rôle
     public function insertUser(string $email, string $hashedPassword, int $role = 1): void {
         $stmt = $this->pdo->prepare(
             "INSERT INTO User (email, passwd, role) VALUES (:email, :passwd, :role)"
@@ -64,27 +61,23 @@ class DeefyRepository{
         $stmt->execute(['email' => $email, 'passwd' => $hashedPassword, 'role' => $role]);
     }
 
-    // return toutes les playlists d'un user
     public function getPlaylistsByUser(int $id): array {
         $stmt = $this->pdo->prepare('SELECT * FROM playlist INNER JOIN user2playlist user2playlist ON playlist.id = user2playlist.id_pl WHERE user2playlist.id_user = :userid');
         $stmt->execute(['userid' => $id]);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    // return la playlist à partir de son id
     public function getPlaylistById(int $id): array {
         $stmt = $this->pdo->prepare("SELECT * FROM playlist WHERE id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    // ajoute une playlist à un user
     public function addPlaylistUser(int $playlistId, int $userId): void {
         $stmt = $this->pdo->prepare("INSERT INTO user2playlist (id_pl, id_user) VALUES (:id_pl, :id_user)");
         $stmt->execute(['id_pl' => $playlistId, 'id_user' => $userId]);
     }
 
-    // Ajoute une piste à une playlist
     public function addPistePlaylist(int $playlistId, array $piste): void{
         $stmt = $this->pdo->prepare(
             "INSERT INTO track (titre, genre, duree, filename, auteur_podcast) VALUES (:titre, :genre, :duree, :filename, :auteur)");
@@ -101,7 +94,6 @@ class DeefyRepository{
         $stmt->execute(['id_pl' => $playlistId, 'id_track' => $pisteId, 'no_piste' => $numsuivant]);
     }
 
-    // return toutes les pistes d'une playlist
     public function getPistePlaylist(int $id_playlist): array {
         $stmt = $this->pdo->prepare("SELECT track.* FROM track INNER JOIN playlist2track ON track.id = playlist2track.id_track WHERE playlist2track.id_pl = :id_pl");
         $stmt->execute(['id_pl' => $id_playlist]);
